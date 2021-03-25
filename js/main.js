@@ -54,6 +54,15 @@ const scrolling = () => {
 	}
 }
 
+const viewScrolling = () => {
+	setTimeout( () => {
+		document.querySelector('body').scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		});
+	}, 300);
+}
+
 scrolling();
 
 // goods
@@ -109,13 +118,7 @@ more.addEventListener('click', event => {
 	event.preventDefault();
 	getGoods()
 		.then(renderCards);
-
-		setTimeout( () => {
-			document.querySelector('body').scrollIntoView({
-				behavior: 'smooth',
-				block: 'start',
-			});
-		}, 300);
+	viewScrolling();
 });
 
 const filterCards = (field, value) => {
@@ -145,22 +148,11 @@ navigationLinks.forEach( link => {
 accessoriesBtn.addEventListener('click', event => {
 	event.preventDefault();
 	filterCards('category', 'Accessories');
-	setTimeout( () => {
-		document.querySelector('body').scrollIntoView({
-			behavior: 'smooth',
-			block: 'start',
-		});
-	}, 300);
+	viewScrolling();
 });
 
 clothingBtn.addEventListener('click', event => {
 	event.preventDefault();
 	filterCards('category', 'Clothing');
-	
-	setTimeout( () => {
-		document.querySelector('body').scrollIntoView({
-			behavior: 'smooth',
-			block: 'start',
-		});
-	}, 300);
+	viewScrolling();
 });
